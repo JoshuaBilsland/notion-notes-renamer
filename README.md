@@ -2,3 +2,6 @@
 <div align="center">
     <p>A small project for renaming my notion notes (https://github.com/JoshuaBilsland/notes-and-practice)</p>
 </div>
+
+# Project purpose
+The purpose of this small project is to create a simple tool that will save me time when it comes to renaming a certain type of file. One of my repos is https://github.com/JoshuaBilsland/notes-and-practice, which, among other things, contains PDF copies of my notes that I have created on https://www.notion.so/. When I export my notes from notion, they are named things such as `0fd35cb5-381e-4e8c-966c-897310c6095a_Mastering_Python_-_Everything_You_Need_To_Know_To_Become_a_Python_Master`. I use the format `YYYY-MM-DD_title_with_underscores` such as `2023-10-19_mastering_python_-_everything_you_need_to_know_to_become_a_python_master`. The aim of this project is to create a tool that can do this renaming for me. It should be able to take either a path to a specific file (which will be singularly renamed) or to a folder (which will have all the files inside of it renamed). This project will give me an excuse to make a project that will both help me practice programming as well as solve a real-world problem (all be it a trivial one).

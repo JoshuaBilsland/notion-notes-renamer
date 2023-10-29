@@ -1,4 +1,5 @@
 import os
+import datetime
 
 
 class Renamer:
@@ -73,12 +74,16 @@ class Renamer:
         first_underscore = file_name.find("_")
 
         # Remove the start (0fd35...95a part)
-        removed_start = file_name[first_underscore + 1:]
+        removed_start = file_name[first_underscore:]
 
         # Make all letters lowercase
         lowered = removed_start.lower()
 
-        return lowered
+        # Prepend the date
+        current_date = datetime.date.today()
+        formatted_date = current_date.strftime("%Y-%m-%d")
+
+        return formatted_date + lowered
 
 
 if __name__ == "__main__":

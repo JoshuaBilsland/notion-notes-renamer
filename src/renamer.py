@@ -4,9 +4,14 @@ class Renamer:
         print("notion-notes-renamer")
         print("--------------------\n")
 
-        print(self.__display_menu())
-        user_input = self.__get_input()
-        self.__handle_input(user_input)
+        self.__main_loop()
+
+    def __main_loop(self):
+        self.__display_menu()
+        running = True
+        while running:
+            user_input = self.__get_input()
+            self.__handle_input(user_input)
 
     def __display_menu(self):
         print("Menu Options")

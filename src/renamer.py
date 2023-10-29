@@ -1,3 +1,6 @@
+import os
+
+
 class Renamer:
     def __init__(self):
         print("--------------------")
@@ -32,8 +35,11 @@ class Renamer:
 
         split_input = user_input.split(" ")
         if len(split_input) == 2:
+            # Make into a raw string for open() to work
+            split_input[1] = rf"{split_input[1]}"
+
             if split_input[0] == "f":
-                print()
+                self.__handle_f(split_input[1])
             elif split_input[0] == "d":
                 print()  # Handle d
             elif split_input[0] == "help":
@@ -42,6 +48,15 @@ class Renamer:
                 print(f"ERROR: {split_input[0]} is not a menu option")
         else:
             print("ERROR: Invalid command. Try using 'help <command>'")
+
+    def __handle_f(self, file_path):
+        if self.__file_exists(file_path):
+            # Join the original path with the new file name
+            path, old_name = os.path.split(file_path)
+            new_name = self.__rename_file(old_name)
+            new_file_path = os.path.join(path, new_name)
+
+            os.rename(file_path, new_file_path)
 
     def __file_exists(self, file_path):
         try:
@@ -58,12 +73,13 @@ class Renamer:
         first_underscore = file_name.find("_")
 
         # Remove the start (0fd35...95a part)
-        removed_start = file_name[first_underscore:]
+        removed_start = file_name[first_underscore + 1:]
 
         # Make all letters lowercase
         lowered = removed_start.lower()
 
         return lowered
+
 
 if __name__ == "__main__":
     Renamer()

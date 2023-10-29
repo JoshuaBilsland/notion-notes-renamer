@@ -42,7 +42,7 @@ class Renamer:
             if split_input[0] == "f":
                 self.__handle_f(split_input[1])
             elif split_input[0] == "d":
-                print()  # Handle d
+                print(self.__dir_exists(split_input[1]))  # Handle d
             elif split_input[0] == "help":
                 print()  # Handle help
             else:
@@ -67,6 +67,9 @@ class Renamer:
         else:
             file.close()
             return True
+
+    def __dir_exists(self, dir_path):
+        return os.path.isdir(dir_path)
 
     def __rename_file(self, file_name):
         # EXAMPLE: 0fd35cb5-381e-4e8c-966c-897310c6095a_Mastering_Python_-_Everything_You_Need_To_Know_To_Become_a_Python_Master

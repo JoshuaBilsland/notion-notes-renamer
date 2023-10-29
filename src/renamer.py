@@ -57,6 +57,8 @@ class Renamer:
             new_name = self.__rename_file(old_name)
             new_file_path = os.path.join(path, new_name)
             os.rename(file_path, new_file_path)
+        else:
+            print("ERROR: File does not exist")
 
     def __handle_d(self, dir_path):
         if self.__dir_exists(dir_path):
@@ -66,6 +68,8 @@ class Renamer:
                 old_file_path = os.path.join(dir_path, file)
                 new_file_path = os.path.join(dir_path, new_name)
                 os.rename(old_file_path, new_file_path)
+        else:
+            print("ERROR: Directory does not exist")
 
     def __file_exists(self, file_path):
         try:

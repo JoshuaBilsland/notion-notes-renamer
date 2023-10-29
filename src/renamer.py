@@ -11,19 +11,25 @@ class Renamer:
         running = True
         while running:
             user_input = self.__get_input()
-            self.__handle_input(user_input)
+            handled_input = self.__handle_input(user_input)
+            if handled_input == "quit":
+                running = False
 
     def __display_menu(self):
         print("Menu Options")
         print("------------")
         print("f - rename a singular file")
         print("d - rename all the files within a given directory")
+        print("\nq - close the program")
         print("\nUse 'help <command>' to get more information about a command")
 
     def __get_input(self):
         return input("\n>> ")
 
     def __handle_input(self, user_input):
+        if user_input == "q":
+            return "quit"
+
         split_input = user_input.split(" ")
         if len(split_input) == 2:
             if split_input[0] == "f":

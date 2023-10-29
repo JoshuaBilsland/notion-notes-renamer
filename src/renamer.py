@@ -1,5 +1,6 @@
 import os
 import datetime
+import help
 
 
 class Renamer:
@@ -44,7 +45,7 @@ class Renamer:
             elif split_input[0] == "d":
                 self.__handle_d(split_input[1])  # Handle d
             elif split_input[0] == "help":
-                print()  # Handle help
+                print(help.handle_help(split_input))  # Handle help
             else:
                 print(f"ERROR: {split_input[0]} is not a menu option")
         else:
